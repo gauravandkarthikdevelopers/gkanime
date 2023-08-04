@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;;
+    background: var(--primary-bg);
+    color: var(--primary);
+    transition: var(--transition);
+    position: relative;
+}
+
+.light {
+    color: var(--primary);
+}
+
+.dark {
+    color: var(--primary-bg);
+}
+
+:root {
+    --primary: rgb(241, 241, 241);
+    --secondary-variant: rgb(0, 62, 107);
+    --secondary: rgb(77, 181, 255);
+
+    --primary-bg: rgb(19, 19, 19);
+    --overlay-bg: rgba(0, 0, 0, 0.5);
+    --overlay-bg-secondary: rgba(0, 0, 0, 0.3);
+
+    --text-shadow: 2px 1px 2px rgba(124, 124, 124, 0.6);
+    --box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+
+    --rating: rgb(255, 87, 87);
+
+    --container-lg: 72%;
+    --container-md: 86%;
+    --container-sm: 94%;
+
+    --transition: all .3s ease-in-out;
+    --backdrop-filter: blur(3px);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============ GENERAL ===========*/
+.container {
+    width: var(--container-lg);
+    margin: 0 auto;
+}
+
+section {
+    margin-top: 2.2rem;
+    overflow: hidden;
+}
+
+.section__header {
+    width: var(--container-lg);
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.2rem!important;
+}
+
+.section__header a {
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 2px;
+    text-shadow: var(--text-shadow);
+}
+
+.section__header a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--secondary);
+    transition: var(--transition);
+}
+
+.section__header a:hover::before {
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+a {
+    color: var(--primary);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+.btn {
+    width: max-content;
+    display: inline-block;
+    padding: 0.65rem 1.2rem;
+    cursor: pointer;
+    border: 1px solid var(--primary);
+    letter-spacing: 1px;
+    font-size: 14px;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--secondary-variant);
+    border-color: var(--secondary);
+    color: var(--primary);
+    box-shadow: 0px 0px 5px 1px var(--secondary);
+}
+
+.btn-primary {
+    border-color: var(--secondary);
+    background: var(--secondary);
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    background: var(--secondary-variant);
+}
+
+button {
+    background: transparent;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    transition: var(--transition)!important;
+    object-position: top center;
+}
+
+/* LAZY LOAD IMAGE COMPONENT */
+.lazy-load-image-background { 
+    width: 100%!important;
+    height: 100%!important;
+}
+
+span, p, h1, h2, h3, h4, h5 {
+    text-shadow: var(--text-shadow);
+}
+
+.green {
+    background-color: green!important;
+}
+
+.active {
+    background-color: var(--secondary-variant)!important;
+    box-shadow: 0px 0px 5px 1px var(--secondary);
+}
+
+.d-none {
+    display: none!important;
+}
+
+.active__nav {
+    color: var(--secondary);
+}
+
+
+/* ================== MEDIA QUERIES (MEDIUM DEVICES) =============== */
+@media screen and (max-width: 1024px) {
+    .container,
+    .section__header {
+        width: var(--container-md);
+    }
+
+    .section__header h2 {
+        flex-basis: 50%;
+    }
+}
+
+/* ================== MEDIA QUERIES (SMALL DEVICES) =============== */
+@media screen and (max-width: 800px) {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .latest__page .section__header h2,
+    .search__page .section__header h2,
+    .trending__page .section__header h2,
+    .info__recommendation .section__header h2,
+    .ongoing__page .section__header h2 {
+        flex-basis: 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container,
+    .section__header {
+        width: var(--container-sm);
+    }
+}
